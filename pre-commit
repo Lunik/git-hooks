@@ -1,0 +1,13 @@
+#!/bin/sh
+
+###########
+## LEAKS ##
+###########
+
+which gitleaks > /dev/null
+if [ "$?" -eq 0 ]; then
+  gitleaks protect --verbose --staged
+else
+  echo "[INFO] Ignoring 'gitleaks' check because the binary is missing"
+  echo "[INFO] More info https://github.com/zricethezav/gitleaks"
+fi
